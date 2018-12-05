@@ -18,3 +18,5 @@ python-config
 python3
 python3.6
 wheel
+
+db.sqlite3
