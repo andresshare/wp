@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>{% block title %}{% endblock %} | Andres Bernal</title>
-    
-    
-    {% load static %}
+
     <!-- Estilos y fuentes del template  -->
+    {% load static %}
     <link href="{% static 'kernel/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'kernel/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -36,7 +34,7 @@
               <a class="nav-link" href="{% url 'home' %}">Portada</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link" href="{% url 'about' %}">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a>
@@ -50,14 +48,13 @@
     </nav>
 
     <!-- Cabecera -->
-    <header class="masthead" style="background-image: url('{% static 'kernel/img/home-bg.jpg' %}')">
+    <header class="masthead" style="background-image: url('{% block background %}{% endblock %}')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-              <h1>Andres Bernal</h1>
-              <span class="subheading">Fullstackdeveloper</span>
+              {% block headers %}{% endblock %}
             </div>
           </div>
         </div>
@@ -65,7 +62,11 @@
     </header>
 
     <!-- Contenido -->
-    {% block content %} {% endblock %}
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    {% if request.path != "/" %}<hr>{% endif %}
     
     <!-- Pié de página -->
     <footer>
@@ -98,13 +99,11 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; 2018 · Andres Bernal </p>
+            <p class="copyright text-muted">Copyright &copy; 2018 · Andres Bernal fullstack </p>
           </div>
         </div>
       </div>
     </footer>
-
-
 
     <!-- Bootstrap y Javascripts -->
     <script src="{% static 'kernel/vendor/jquery/jquery.min.js' %}"></script>

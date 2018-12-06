@@ -1,7 +1,10 @@
 {% extends 'kernel/base.html' %}
+
 {% block title %}Portada{% endblock %}
 
-{% block content %}
- <h1>WP</h1>
- <p>{% lorem 1 b random %}</p>
+{% block background %}{% load static %}{% static 'kernel/img/home-bg.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Juan Pérez</h1>
+<span class="subheading">Full stack Developerl</span>
 {% endblock %}
