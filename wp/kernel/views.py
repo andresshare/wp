@@ -1,23 +1,13 @@
 from django.shortcuts import render, HttpResponse
 
-barra_nav = """
- <h1>WP</h1>
- <ul>
-    <li><a href="/">Inicio</a></li>
-    <li><a href="/">About</a></li>
-    <li><a href="/">Portfolio</a></li>
-    <li><a href="/">Contacto</a></li>
- </ul>
-"""
-
 def home(request):
     return render(request,"kernel/home.html",{})
 
 def about(request):
-    return HttpResponse(barra_nav + "<h2>About</h2>")
+    return render(request,"kernel/about.html",{})
 
 def portfolio(request):
-    return HttpResponse(barra_nav + "<h2>Portfolio</h2>")
+    return render(request,"kernel/portfolio.html",{})
 
 def contacto(request):
-    return HttpResponse(barra_nav + "<h2>Contacto</h2>")
+    return render(request,"kernel/contacto.html",{})
