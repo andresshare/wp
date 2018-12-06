@@ -11,7 +11,7 @@ barra_nav = """
 """
 
 def home(request):
-    return HttpResponse(barra_nav + "<h2>Portada</h2>")
+    return render(request,"kernel/home.html",{})
 
 def about(request):
     return HttpResponse(barra_nav + "<h2>About</h2>")
